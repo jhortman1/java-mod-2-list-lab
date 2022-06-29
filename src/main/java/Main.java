@@ -1,5 +1,46 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // your code here
+        String titleOfBook;
+        String genreOfBook;
+        String repeat;
+
+        int numberOfPages;
+
+        boolean exit = false;
+
+        Library lb = new Library();
+
+        try(Scanner input = new Scanner(System.in))
+        {
+            do{
+                System.out.print("Please enter the title of the book: ");
+                titleOfBook = input.next();
+                System.out.print("Please enter the genre of the book: ");
+                genreOfBook = input.next();
+                System.out.print("Please enter the number of pages in the book: ");
+                numberOfPages = input.nextInt();
+
+                Book bk = new Book(titleOfBook, genreOfBook, numberOfPages);
+                lb.add(bk);
+
+                System.out.print("Would you like to enter another book? (y/n) ");
+                repeat = input.next();
+
+                if(repeat.equalsIgnoreCase("y"))
+                {exit = false;}
+                else {exit = true;}
+            }while(!exit);
+
+            System.out.println("Books Added to library: ");
+            System.out.println(lb.libraryBooks.toString());
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Sorry that was an invalid input, please try again");
+        }         
+
     }
 }
