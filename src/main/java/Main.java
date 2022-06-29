@@ -16,17 +16,19 @@ public class Main {
         {
             do{
                 System.out.print("Please enter the title of the book: ");
-                titleOfBook = input.next();
+                titleOfBook = input.nextLine();
                 System.out.print("Please enter the genre of the book: ");
-                genreOfBook = input.next();
+                genreOfBook = input.nextLine();
                 System.out.print("Please enter the number of pages in the book: ");
                 numberOfPages = input.nextInt();
+
+                input.nextLine();
 
                 Book bk = new Book(titleOfBook, genreOfBook, numberOfPages);
                 lb.add(bk);
 
                 System.out.print("Would you like to enter another book? (y/n) ");
-                repeat = input.next();
+                repeat = input.nextLine();
 
                 if(repeat.equalsIgnoreCase("y"))
                 {exit = false;}
